@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    
+    <!-- Initial meta elements will be set by JavaScript -->
+    
+    <!-- 6. JavaScript-Based Website - Even the SEO protective elements are loaded via JS -->
+    <script>
+        // Dynamically add meta tags for SEO minimization
+        document.addEventListener('DOMContentLoaded', function() {
+            // 2. Add meta tags for indexing prevention
+            const robotsMeta = document.createElement('meta');
+            robotsMeta.name = 'robots';
+            robotsMeta.content = 'noindex, nofollow';
+            document.head.appendChild(robotsMeta);
+            
+            // 5. Add canonical tag
+            const canonicalLink = document.createElement('link');
+            canonicalLink.rel = 'canonical';
+            canonicalLink.href = 'https://www.backtovlerick.com/';
+            document.head.appendChild(canonicalLink);
+            
+            // Add cache control meta tags
+            const cacheControlMeta = document.createElement('meta');
+            cacheControlMeta.httpEquiv = 'Cache-Control';
+            cacheControlMeta.content = 'no-store, no-cache, must-revalidate, proxy-revalidate';
+            document.head.appendChild(cacheControlMeta);
+            
+            const pragmaMeta = document.createElement('meta');
+            pragmaMeta.httpEquiv = 'Pragma';
+            pragmaMeta.content = 'no-cache';
+            document.head.appendChild(pragmaMeta);
+            
+            const expiresMeta = document.createElement('meta');
+            expiresMeta.httpEquiv = 'Expires';
+            expiresMeta.content = '0';
+            document.head.appendChild(expiresMeta);
+            
+            // Load the content with a slight delay
+            setTimeout(function() {
+                document.getElementById('content').innerHTML = '<h1>Hello World</h1>';
+            }, 300); // Small delay to simulate verification or processing
+        });
+        
+        // Add analytics blocker (to prevent analytics tools from indexing)
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        // Override any analytics that might try to track this page
+        gtag('config', 'DISABLED');
+        
+        // Handle URL complexity (8. Complex Query Parameters)
+        window.onload = function() {
+            // Add complex parameters to URL without reloading
+            if (!window.location.search) {
+                const randomParams = `?p=${Math.floor(Math.random() * 1000)}&t=${Date.now()}&nonce=${Math.random().toString(36).substring(2, 15)}`;
+                window.history.replaceState({}, document.title, window.location.pathname + randomParams);
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Initial empty container -->
+    <div id="content"></div>
+    
+    <noscript>
+        <!-- Content for browsers with JavaScript disabled (would still be visible to crawlers) -->
+        <div style="display:none">
+            <!-- This content is hidden even if JavaScript is disabled -->
+            <h1>Hello World</h1>
+        </div>
+    </noscript>
+</body>
+</html>

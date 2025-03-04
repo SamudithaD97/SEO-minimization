@@ -1,0 +1,14 @@
+# Add X-Robots-Tag header to all responses
+Header set X-Robots-Tag "noindex, nofollow"
+
+# Disable browser caching
+Header set Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate"
+Header set Pragma "no-cache"
+Header set Expires "0"
+
+# Optional: Password protect the directory
+# Uncomment these lines to enable basic authentication
+# AuthType Basic
+# AuthName "Restricted Access"
+# AuthUserFile /path/to/.htpasswd
+# Require valid-user
